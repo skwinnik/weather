@@ -20,8 +20,8 @@ export default async function Home() {
   if (!weather) return <div>Weather not found</div>;
 
   return (
-    <div className="grid lg:grid-cols-6 grid-cols-4 grid-rows-4-h-fixed gap-4">
-      <div className="lg:col-span-6 col-span-4 text-center">
+    <div className="grid lg:grid-cols-6 sm:grid-cols-4 grid-cols-2 grid-rows-4-h-fixed gap-4">
+      <div className="col-span-full text-center">
         <h1 className="text-3xl capitalize">{weather.location.name}</h1>
         <h2 className="text-2xl capitalize">
           {weather.current.temp_c}° | {weather.current.condition.text}
@@ -30,7 +30,7 @@ export default async function Home() {
       <Tile
         icon={<ClockIcon />}
         header="Hourly Forecast"
-        className="col-span-4"
+        className="md:col-span-4 col-span-full"
       >
         <ForecastHourly
           forecast_today={weather.forecast.forecastday[0]}
@@ -41,7 +41,7 @@ export default async function Home() {
       <Tile
         icon={<ClockIcon />}
         header="10-day Forecast"
-        className="col-span-2 row-span-3"
+        className="md:col-span-2 col-span-full row-span-3"
       >
         <ForecastDaily forecast={weather.forecast} />
       </Tile>

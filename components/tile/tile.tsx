@@ -13,7 +13,7 @@ export default function Tile({
     <div
       className={`${className} bg-primary-700/25 rounded-lg p-3 flex flex-col overflow-hidden`}
     >
-      <div className="text-primary-300 text-sm [&>svg]:h-4 [&>svg]:w-4 [&>svg]:inline-block [&>svg]:align-sub flex-auto flex-grow-0 flex-shrink-0">
+      <div className="text-primary-300 text-xs sm:text-sm [&>svg]:h-4 [&>svg]:w-4 [&>svg]:inline-block [&>svg]:align-sub flex-auto flex-grow-0 flex-shrink-0">
         {icon}&nbsp;
         <span className="uppercase font-bold tracking-wider text-xs">
           {header}

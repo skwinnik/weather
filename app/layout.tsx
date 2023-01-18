@@ -8,7 +8,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head />
-      <body className="px-10 py-10">{children}</body>
+      <body className="p-8 sm:p-10">{children}</body>
     </html>
   );
 }
