@@ -1,0 +1,20 @@
+.gradient {
+  background: linear-gradient(
+    90deg,
+    theme("colors.blue.900"),
+    theme("colors.blue.800"),
+    theme("colors.blue.700"),
+    theme("colors.blue.600"),
+    theme("colors.sky.600"),
+    theme("colors.sky.500"),
+    theme("colors.cyan.500"),
+    theme("colors.cyan.400"),
+    theme("colors.cyan.300"),
+    theme("colors.amber.200"),
+    theme("colors.yellow.300"),
+    theme("colors.orange.200"),
+    theme("colors.orange.300"),
+    theme("colors.red.300"),
+    theme("colors.red.400")
+  );
+}
