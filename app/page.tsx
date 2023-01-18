@@ -72,7 +72,7 @@ export default async function Home() {
       <Tile icon={<ClockIcon />} header="Wind" className="col-span-1">
         <Wind speed={weather.current.wind_kph} />
       </Tile>
-      <Tile icon={<ClockIcon />} header="Cloud Coverage" className="col-span-1">
+      <Tile icon={<ClockIcon />} header="Clouds" className="col-span-1">
         <CloudCoverage cloud={weather.current.cloud} />
       </Tile>
     </div>
