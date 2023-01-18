@@ -10,7 +10,7 @@ export async function getWeather(
   return data;
 }
 
-interface IWeather {
+export interface IWeather {
   location: ILocation;
   current: ICurrent;
   forecast: IForecast;

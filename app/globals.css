@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  font-family: sans-serif;
+  min-height: 100vh;
+  max-width: 100vw;
+  overflow-x: hidden;
+  background: linear-gradient(
+    to bottom,
+    theme("colors.sky.600"),
+    theme("colors.sky.300")
+  );
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}
