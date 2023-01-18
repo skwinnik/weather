@@ -14,12 +14,24 @@ body {
   min-height: 100vh;
   max-width: 1200px;
   margin: 0 auto;
-  overflow-x: hidden;
   background: linear-gradient(
     to bottom,
     theme("colors.primary.600"),
     theme("colors.primary.300")
   );
+  min-height: 100%;
+}
+
+.parallax-bg {
+  background: linear-gradient(
+    to bottom,
+    theme("colors.primary.600"),
+    theme("colors.primary.300")
+  );
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 1154px;
 }
 
 a {
