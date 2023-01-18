@@ -24,7 +24,6 @@ export default function Precipitation({
 }
 
 function getDayOfWeek(date: Date) {
-  console.log(date);
   const dayOfWeek = new Date(date).getDay();
   return isNaN(dayOfWeek)
     ? null
