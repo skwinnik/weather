@@ -16,8 +16,8 @@ body {
   overflow-x: hidden;
   background: linear-gradient(
     to bottom,
-    theme("colors.sky.600"),
-    theme("colors.sky.300")
+    theme("colors.primary.600"),
+    theme("colors.primary.300")
   );
 }
 
