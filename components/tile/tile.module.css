@@ -1,0 +1,9 @@
+@use "sass:color";
+@import "@/styles/_variables.scss";
+
+.tile {
+  background: color.adjust($primary-accent-bg, $alpha: -0.66);
+  border-radius: 1em;
+
+  padding: 1em;
+}
