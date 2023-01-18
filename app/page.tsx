@@ -1,5 +1,6 @@
 import CloudCoverage from "@/components/cloud-coverage/cloud-coverage";
 import FeelsLike from "@/components/feels-like/feels-like";
+import ForecastDaily from "@/components/forecast-daily/forecast-daily";
 import ForecastHourly from "@/components/forecast-hourly/forecast-hourly";
 import Humidity from "@/components/humidity/humidity";
 import Precipitation from "@/components/precipitation/precipitation";
@@ -13,7 +14,7 @@ import { getWeather } from "@/services/weather.service";
 import { ClockIcon } from "@heroicons/react/24/outline";
 
 export default async function Home() {
-  const weather = await getWeather("Antalya", "Turkey", 3);
+  const weather = await getWeather("Antalya", "Turkey", 10);
 
   //TODO redirect?
   if (!weather) return <div>Weather not found</div>;
@@ -29,13 +30,20 @@ export default async function Home() {
       <Tile
         icon={<ClockIcon />}
         header="Hourly Forecast"
-        className="lg:col-span-6 col-span-4"
+        className="col-span-4"
       >
         <ForecastHourly
           forecast_today={weather.forecast.forecastday[0]}
           forecast_tomorrow={weather.forecast.forecastday[1]}
           tz_id={weather.location.tz_id}
         />
+      </Tile>
+      <Tile
+        icon={<ClockIcon />}
+        header="10-day Forecast"
+        className="col-span-2 row-span-3"
+      >
+        <ForecastDaily forecast={weather.forecast} />
       </Tile>
       <Tile icon={<ClockIcon />} header="Feels Like" className="col-span-1">
         <FeelsLike temp={weather.current.feelslike_c} />
