@@ -11,7 +11,9 @@ module.exports = {
         lg: "976px",
         xl: "1440px",
       },
-
+      colors: {
+        primary: colors.sky,
+      },
       gridTemplateColumns: {
         "auto-1fr": "auto 1fr",
       },
@@ -19,10 +21,6 @@ module.exports = {
       gridTemplateRows: {
         "4-h-fixed": "minmax(200px, 200px) repeat(3, minmax(160px, 160px))",
       },
-    },
-
-    colors: {
-      primary: colors.sky,
     },
   },
   plugins: [],
