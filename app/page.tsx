@@ -22,7 +22,7 @@ export default async function Home() {
 
   return (
     <>
-      <div className="max-w-screen-lg mx-auto grid lg:grid-cols-6 sm:grid-cols-4 grid-cols-2 grid-rows-4-h-fixed gap-4 pb-16">
+      <div className="max-w-screen-lg mx-auto grid lg:grid-cols-6 sm:grid-cols-4 grid-cols-2 grid-rows-4-h-fixed gap-4 pb-16 sm:pb-12">
         <CurrentWeather
           className="top-0 -mx-8 sm:-mx-10 pt-8 md:pt-8 col-span-full z-50 sticky bg-primary-gradient bg-primary-gradient-full-screen"
           weather={weather}
