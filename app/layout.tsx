@@ -6,9 +6,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html className="bg-primary-gradient" lang="en">
       <head />
-      <body className="p-8 sm:p-10">{children}</body>
+      <body className="p-8 sm:p-10 pt-0 sm:pt-0">{children}</body>
     </html>
   );
 }
