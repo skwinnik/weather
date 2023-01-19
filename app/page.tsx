@@ -1,5 +1,8 @@
 import CloudCoverage from "@/components/cloud-coverage/cloud-coverage";
-import CurrentWeather from "@/components/current-weather/current-weather";
+import {
+  CurrentWeather,
+  CurrentWeatherCompact,
+} from "@/components/current-weather/current-weather";
 import FeelsLike from "@/components/feels-like/feels-like";
 import ForecastDaily from "@/components/forecast-daily/forecast-daily";
 import ForecastHourly from "@/components/forecast-hourly/forecast-hourly";
