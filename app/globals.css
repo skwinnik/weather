@@ -18,6 +18,7 @@
 
 .bg-primary-gradient-full-screen {
   background-size: 100vw 100vh;
+  background-attachment: fixed;
 }
 
 html {
@@ -31,6 +32,9 @@ html {
 body {
   overflow: auto;
   height: 100%;
+
+  /* TODO find a way to avoid this */
+  overscroll-behavior-y: none;
 }
 
 .parallax-bg {
