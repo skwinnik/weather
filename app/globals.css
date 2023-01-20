@@ -14,7 +14,7 @@
 .bg-primary-gradient {
   background-image: linear-gradient(
     to bottom,
-    theme("colors.primary.600") 18rem,
+    theme("colors.primary.600") 16rem,
     theme("colors.primary.300")
   );
 }
