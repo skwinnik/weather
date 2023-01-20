@@ -2,6 +2,7 @@ import CloudCoverage from "@/components/cloud-coverage/cloud-coverage";
 import {
   CurrentWeather,
   CurrentWeatherCompact,
+  Location,
 } from "@/components/current-weather/current-weather";
 import FeelsLike from "@/components/feels-like/feels-like";
 import ForecastDaily from "@/components/forecast-daily/forecast-daily";
@@ -16,6 +17,7 @@ import Wind from "@/components/wind/wind";
 import { getWeather } from "@/services/weather.service";
 
 import { ClockIcon } from "@heroicons/react/24/outline";
+import styles from "./page.module.css";
 
 export default async function Home() {
   const weather = await getWeather("Antalya", "Turkey", 10);
@@ -26,9 +28,20 @@ export default async function Home() {
   return (
     <>
       <div className="max-w-screen-lg mx-auto grid lg:grid-cols-6 sm:grid-cols-4 grid-cols-2 grid-rows-4-h-fixed gap-4 pb-16 xl:pb-0">
-        <div className="col-span-full sticky top-0 bg-primary-gradient z-40 bg-primary-gradient bg-[length:100vw_100vh]">
-          <CurrentWeather className="pt-8 md:pt-8" weather={weather} />
+        <div className="col-span-full sticky top-0 pt-8 md:pt-8 z-40 bg-primary-gradient bg-[length:100vw_100vh]">
+          <Location weather={weather} />
+          <div className="relative w-full h-full">
+            <CurrentWeather
+              className={`${styles.showInitial} absolute top-0 w-full`}
+              weather={weather}
+            />
+            <CurrentWeatherCompact
+              className={`${styles.showScroll} absolute top-0 w-full`}
+              weather={weather}
+            />
+          </div>
         </div>
+        <div className="col-span-full"></div>
         <Tile
           icon={<ClockIcon />}
           header="Hourly Forecast"

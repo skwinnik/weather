@@ -1,0 +1,26 @@
+.showInitial,
+.showScroll {
+  transition: opacity 0.5s ease-in-out;
+}
+
+[data-scroll="false"] .showInitial,
+[data-scroll="true"] .showScroll {
+  opacity: 1;
+}
+[data-scroll="true"] .showInitial,
+[data-scroll="false"] .showScroll {
+  opacity: 0;
+}
+
+/* .stub {
+  transition: height 0.5s ease-in-out;
+  width: 100%;
+} */
+
+/* [data-scroll="false"] .stub {
+  @apply h-32;
+}
+
+[data-scroll="true"] .stub {
+  @apply h-16;
+} */
