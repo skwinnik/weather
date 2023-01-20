@@ -1,20 +1,20 @@
 .gradient {
   background: linear-gradient(
     90deg,
-    theme("colors.blue.900"),
-    theme("colors.blue.800"),
-    theme("colors.blue.700"),
-    theme("colors.blue.600"),
-    theme("colors.sky.600"),
-    theme("colors.sky.500"),
-    theme("colors.cyan.500"),
-    theme("colors.cyan.400"),
-    theme("colors.cyan.300"),
-    theme("colors.amber.200"),
-    theme("colors.yellow.300"),
-    theme("colors.orange.200"),
-    theme("colors.orange.300"),
-    theme("colors.red.300"),
-    theme("colors.red.400")
+    theme("colors.temp_range.1"),
+    theme("colors.temp_range.2"),
+    theme("colors.temp_range.3"),
+    theme("colors.temp_range.4"),
+    theme("colors.temp_range.5"),
+    theme("colors.temp_range.6"),
+    theme("colors.temp_range.7"),
+    theme("colors.temp_range.8"),
+    theme("colors.temp_range.9"),
+    theme("colors.temp_range.10"),
+    theme("colors.temp_range.11"),
+    theme("colors.temp_range.12"),
+    theme("colors.temp_range.13"),
+    theme("colors.temp_range.14"),
+    theme("colors.temp_range.15")
   );
 }
