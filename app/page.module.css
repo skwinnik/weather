@@ -1,0 +1,18 @@
+.showInitial,
+.showScroll {
+  transition: opacity 0.5s ease-in-out, transform 0.25s ease-in-out,
+    -webkit-transform 0.25s ease-in-out;
+}
+
+[data-scroll="false"] .showInitial,
+[data-scroll="true"] .showScroll {
+  opacity: 1;
+  transform: scale(1);
+  -webkit-transform: scale(1, 1);
+}
+[data-scroll="true"] .showInitial,
+[data-scroll="false"] .showScroll {
+  opacity: 0;
+  -webkit-transform: scale(0.5, 0.5);
+  transform: scale(0.5);
+}

@@ -82,7 +82,7 @@ function TempRange({
     <div className="flex items-center justify-between">
       <div className="w-8">{min.toFixed(0)}°</div>
       <div className="flex-auto">
-        <div className="w-full h-1 relative">
+        <div className="w-full h-1 relative z-0">
           <div
             className={`h-full w-full absolute bg-primary-700/50 `}
             style={{ top: 0 }}

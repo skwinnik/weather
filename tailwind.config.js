@@ -20,7 +20,8 @@ module.exports = {
       },
 
       gridTemplateRows: {
-        "4-h-fixed": "minmax(200px, 200px) repeat(3, minmax(160px, 160px))",
+        "4-h-fixed":
+          "minmax(8rem, 8rem) minmax(4rem, 4rem) repeat(3, minmax(10rem, 10rem))",
       },
     },
   },
