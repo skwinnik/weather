@@ -25,12 +25,10 @@ export default async function Home() {
 
   return (
     <>
-      <CurrentWeather
-        className=" fixed top-0 left-0 w-full pt-8 md:pt-8 z-50"
-        weather={weather}
-      />
       <div className="max-w-screen-lg mx-auto grid lg:grid-cols-6 sm:grid-cols-4 grid-cols-2 grid-rows-4-h-fixed gap-4 pb-16 xl:pb-0">
-        <div className="col-span-full sticky top-0 bg-primary-gradient z-40 bg-primary-gradient-full-screen"></div>
+        <div className="col-span-full sticky top-0 bg-primary-gradient z-40 bg-primary-gradient-full-screen">
+          <CurrentWeather className="pt-8 md:pt-8" weather={weather} />
+        </div>
         <Tile
           icon={<ClockIcon />}
           header="Hourly Forecast"
