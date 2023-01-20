@@ -34,7 +34,6 @@ body {
   height: 100%;
 
   /* TODO find a way to avoid this */
-  overscroll-behavior-y: none;
 }
 
 .parallax-bg {
