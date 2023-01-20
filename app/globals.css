@@ -8,17 +8,15 @@
   margin: 0;
 }
 
+.bg-primary-solid {
+  background-color: theme("colors.primary.600");
+}
 .bg-primary-gradient {
-  background: linear-gradient(
+  background-image: linear-gradient(
     to bottom,
-    theme("colors.primary.600"),
+    theme("colors.primary.600") 18rem,
     theme("colors.primary.300")
   );
-}
-
-.bg-primary-gradient-full-screen {
-  background-size: 100vw 100vh;
-  background-attachment: fixed;
 }
 
 html {
@@ -28,22 +26,12 @@ html {
   margin: 0 auto;
   overflow: auto;
   color: theme("colors.primary.100");
+
+  @apply bg-primary-solid;
 }
 
 body {
   height: 100%;
-}
-
-.parallax-bg {
-  background: linear-gradient(
-    to bottom,
-    theme("colors.primary.600"),
-    theme("colors.primary.300")
-  );
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 1154px;
 }
 
 a {

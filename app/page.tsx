@@ -26,7 +26,7 @@ export default async function Home() {
   return (
     <>
       <div className="max-w-screen-lg mx-auto grid lg:grid-cols-6 sm:grid-cols-4 grid-cols-2 grid-rows-4-h-fixed gap-4 pb-16 xl:pb-0">
-        <div className="col-span-full sticky top-0 bg-primary-gradient z-40 bg-primary-gradient-full-screen">
+        <div className="col-span-full sticky top-0 bg-primary-gradient z-40 bg-primary-gradient bg-[length:100vw_100vh]">
           <CurrentWeather className="pt-8 md:pt-8" weather={weather} />
         </div>
         <Tile
