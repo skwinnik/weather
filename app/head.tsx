@@ -7,6 +7,10 @@ export default function Head({ color }: { color: string }) {
         content="width=device-width, initial-scale=1, viewport-fit=cover"
       />
       <meta name="theme-color" content={color}></meta>
+      <meta
+        name="google-site-verification"
+        content={process.env.GOOGLE_VERIFICATION_KEY}
+      />
       <link rel="icon" href="/favicon.ico" />
     </>
   );
