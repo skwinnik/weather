@@ -1,14 +1,17 @@
 import { IWeather } from "@/services/weather.service";
+import { CSSProperties } from "react";
 
 export function CurrentWeather({
   weather,
+  style,
   className,
 }: {
   weather: IWeather;
+  style?: CSSProperties;
   className?: string;
 }) {
   return (
-    <div className={`text-center ${className}`}>
+    <div className={`text-center ${className}`} style={style}>
       <h2 className="text-6xl font-thin capitalize">
         &nbsp;{weather.current.temp_c.toFixed(0)}°
       </h2>
@@ -24,13 +27,15 @@ export function CurrentWeather({
 
 export function CurrentWeatherCompact({
   weather,
+  style,
   className,
 }: {
   weather: IWeather;
+  style?: CSSProperties;
   className?: string;
 }) {
   return (
-    <div className={`text-center ${className}`}>
+    <div className={`text-center ${className}`} style={style}>
       <h2 className="text-2xl capitalize">
         {weather.current.temp_c.toFixed(0)}° | {weather.current.condition.text}
       </h2>

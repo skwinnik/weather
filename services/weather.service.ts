@@ -1,3 +1,7 @@
+export async function getWeatherCurrent() {
+  return getWeather("Antalya", "Turkey", 10);
+}
+
 export async function getWeather(
   city: string,
   country: string,

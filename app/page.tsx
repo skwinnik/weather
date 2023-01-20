@@ -14,13 +14,13 @@ import Tile from "@/components/tile/tile";
 import UvIndex from "@/components/uv-index/uv-index";
 import Visibility from "@/components/visibility/visibility";
 import Wind from "@/components/wind/wind";
-import { getWeather } from "@/services/weather.service";
+import { getWeatherCurrent } from "@/services/weather.service";
 
 import { ClockIcon } from "@heroicons/react/24/outline";
 import styles from "./page.module.css";
 
 export default async function Home() {
-  const weather = await getWeather("Antalya", "Turkey", 10);
+  const weather = await getWeatherCurrent();
 
   //TODO redirect?
   if (!weather) return <div>Weather not found</div>;
@@ -28,7 +28,7 @@ export default async function Home() {
   return (
     <>
       <div className="max-w-screen-lg mx-auto grid lg:grid-cols-6 sm:grid-cols-4 grid-cols-2 grid-rows-4-h-fixed gap-4 pb-16 xl:pb-0">
-        <div className="col-span-full sticky top-0 pt-8 md:pt-8 z-40 bg-primary-gradient bg-[length:100vw_100vh] weather-transition">
+        <div className="col-span-full sticky top-0 pt-8 md:pt-8 z-40 bg-primary-gradient bg-[length:100vw_100vh]">
           <Location weather={weather} />
           <div className="relative w-full h-full">
             <CurrentWeather
@@ -37,6 +37,8 @@ export default async function Home() {
             />
             <CurrentWeatherCompact
               className={`${styles.showScroll} absolute top-0 w-full`}
+              // hide on load to avoid flash
+              style={{ opacity: 0 }}
               weather={weather}
             />
           </div>

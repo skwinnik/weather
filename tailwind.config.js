@@ -34,6 +34,17 @@ module.exports = {
         800: "rgb(var(--color-primary-800))",
         900: "rgb(var(--color-primary-900))",
       },
+      primary_old: {
+        100: "rgb(var(--color-primary-old-100))",
+        200: "rgb(var(--color-primary-old-200))",
+        300: "rgb(var(--color-primary-old-300))",
+        400: "rgb(var(--color-primary-old-400))",
+        500: "rgb(var(--color-primary-old-500))",
+        600: "rgb(var(--color-primary-old-600))",
+        700: "rgb(var(--color-primary-old-700))",
+        800: "rgb(var(--color-primary-old-800))",
+        900: "rgb(var(--color-primary-old-900))",
+      },
       temp_range: {
         1: "rgb(var(--color-temp-1))",
         2: "rgb(var(--color-temp-2))",

@@ -1,42 +1,52 @@
-"use client";
+import { IWeather } from "@/services/weather.service";
 import { Day, Evening, TempRange } from "@/themes/themes";
-import { useEffect } from "react";
-export default function Theme() {
-  const theme = getCurrentTheme();
-  const temp = getCurrentTempRange();
-  useEffect(() => {
-    const root = document.documentElement;
-    root.style.setProperty("--color-primary-50", theme.primary["50_rgb"]);
-    root.style.setProperty("--color-primary-100", theme.primary["100_rgb"]);
-    root.style.setProperty("--color-primary-200", theme.primary["200_rgb"]);
-    root.style.setProperty("--color-primary-300", theme.primary["300_rgb"]);
-    root.style.setProperty("--color-primary-400", theme.primary["400_rgb"]);
-    root.style.setProperty("--color-primary-500", theme.primary["500_rgb"]);
-    root.style.setProperty("--color-primary-600", theme.primary["600_rgb"]);
-    root.style.setProperty("--color-primary-700", theme.primary["700_rgb"]);
-    root.style.setProperty("--color-primary-800", theme.primary["800_rgb"]);
-    root.style.setProperty("--color-primary-900", theme.primary["900_rgb"]);
-
-    root.style.setProperty("--color-temp-1", temp["1_rgb"]);
-    root.style.setProperty("--color-temp-2", temp["2_rgb"]);
-    root.style.setProperty("--color-temp-3", temp["3_rgb"]);
-    root.style.setProperty("--color-temp-4", temp["4_rgb"]);
-    root.style.setProperty("--color-temp-5", temp["5_rgb"]);
-    root.style.setProperty("--color-temp-6", temp["6_rgb"]);
-    root.style.setProperty("--color-temp-7", temp["7_rgb"]);
-    root.style.setProperty("--color-temp-8", temp["8_rgb"]);
-    root.style.setProperty("--color-temp-9", temp["9_rgb"]);
-    root.style.setProperty("--color-temp-10", temp["10_rgb"]);
-    root.style.setProperty("--color-temp-11", temp["11_rgb"]);
-    root.style.setProperty("--color-temp-12", temp["12_rgb"]);
-    root.style.setProperty("--color-temp-13", temp["13_rgb"]);
-    root.style.setProperty("--color-temp-14", temp["14_rgb"]);
-    root.style.setProperty("--color-temp-15", temp["15_rgb"]);
-  });
-  return <></>;
+import { CSSProperties } from "react";
+export function GetMetaColor(weather: IWeather): string {
+  const theme = getCurrentTheme(weather);
+  return theme.primary["500"];
 }
 
-function getCurrentTheme() {
+export function GetThemeValues(weather: IWeather): CSSProperties {
+  const theme = getCurrentTheme(weather);
+  const temp = getCurrentTempRange();
+
+  return {
+    ["--color-primary-50" as any]: theme.primary["50_rgb"],
+    ["--color-primary-100" as any]: theme.primary["100_rgb"],
+    ["--color-primary-200" as any]: theme.primary["200_rgb"],
+    ["--color-primary-300" as any]: theme.primary["300_rgb"],
+    ["--color-primary-400" as any]: theme.primary["400_rgb"],
+    ["--color-primary-500" as any]: theme.primary["500_rgb"],
+    ["--color-primary-600" as any]: theme.primary["600_rgb"],
+    ["--color-primary-700" as any]: theme.primary["700_rgb"],
+    ["--color-primary-800" as any]: theme.primary["800_rgb"],
+    ["--color-primary-900" as any]: theme.primary["900_rgb"],
+
+    ["--color-temp-1" as any]: temp["1_rgb"],
+    ["--color-temp-2" as any]: temp["2_rgb"],
+    ["--color-temp-3" as any]: temp["3_rgb"],
+    ["--color-temp-4" as any]: temp["4_rgb"],
+    ["--color-temp-5" as any]: temp["5_rgb"],
+    ["--color-temp-6" as any]: temp["6_rgb"],
+    ["--color-temp-7" as any]: temp["7_rgb"],
+    ["--color-temp-8" as any]: temp["8_rgb"],
+    ["--color-temp-9" as any]: temp["9_rgb"],
+    ["--color-temp-10" as any]: temp["10_rgb"],
+    ["--color-temp-11" as any]: temp["11_rgb"],
+    ["--color-temp-12" as any]: temp["12_rgb"],
+    ["--color-temp-13" as any]: temp["13_rgb"],
+    ["--color-temp-14" as any]: temp["14_rgb"],
+    ["--color-temp-15" as any]: temp["15_rgb"],
+  };
+
+  // root.style.setProperty("--gradient-shift", "48rem");
+}
+
+function getCurrentTheme(weather: IWeather) {
+  const localTime = new Date(weather.location.localtime);
+  if (localTime.getHours() >= 6 && localTime.getHours() < 18) {
+    return Day();
+  }
   return Evening();
 }
 
