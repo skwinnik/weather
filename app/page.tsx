@@ -28,7 +28,7 @@ export default async function Home() {
   return (
     <>
       <div className="max-w-screen-lg mx-auto grid lg:grid-cols-6 sm:grid-cols-4 grid-cols-2 grid-rows-4-h-fixed gap-4 pb-16 xl:pb-0">
-        <div className="col-span-full sticky top-0 pt-8 md:pt-8 z-40 bg-primary-gradient bg-[length:100vw_100vh]">
+        <div className="col-span-full sticky top-0 pt-8 md:pt-8 z-40 bg-primary-gradient bg-[length:100vw_100vh] weather-transition">
           <Location weather={weather} />
           <div className="relative w-full h-full">
             <CurrentWeather

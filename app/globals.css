@@ -8,6 +8,39 @@
   margin: 0;
 }
 
+:root {
+  --color-primary-50: 0 0 0;
+  --color-primary-100: 0 0 0;
+  --color-primary-200: 0 0 0;
+  --color-primary-300: 0 0 0;
+  --color-primary-400: 0 0 0;
+  --color-primary-500: 0 0 0;
+  --color-primary-600: 0 0 0;
+  --color-primary-700: 0 0 0;
+  --color-primary-800: 0 0 0;
+  --color-primary-900: 0 0 0;
+
+  --color-temp-1: 0 0 0;
+  --color-temp-2: 0 0 0;
+  --color-temp-3: 0 0 0;
+  --color-temp-4: 0 0 0;
+  --color-temp-5: 0 0 0;
+  --color-temp-6: 0 0 0;
+  --color-temp-7: 0 0 0;
+  --color-temp-8: 0 0 0;
+  --color-temp-9: 0 0 0;
+  --color-temp-10: 0 0 0;
+  --color-temp-11: 0 0 0;
+  --color-temp-12: 0 0 0;
+  --color-temp-13: 0 0 0;
+  --color-temp-14: 0 0 0;
+  --color-temp-15: 0 0 0;
+}
+
+.weather-transition {
+  -webkit-transition: background-image 0.2s ease-in-out;
+  transition: color 1s ease-in-out, background-image 1s ease-in-out;
+}
 .bg-primary-solid {
   background-color: theme("colors.primary.600");
 }
@@ -27,6 +60,7 @@ html {
   overflow: auto;
   color: theme("colors.primary.100");
 
+  @apply weather-transition;
   @apply bg-primary-solid;
 }
 
