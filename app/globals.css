@@ -21,6 +21,9 @@
   --color-primary-800: 7 89 133;
   --color-primary-900: 12 74 110;
 
+  --color-gradient-from: var(--color-primary-600);
+  --color-gradient-to: var(--color-primary-300);
+
   --color-temp-1: 30 58 138,
   --color-temp-2: 30 64 175,
   --color-temp-3: 29 78 216,
@@ -44,8 +47,8 @@
 .bg-primary-gradient {
   background-image: linear-gradient(
     to bottom,
-    theme("colors.primary.600") calc(48rem + 16rem),
-    theme("colors.primary.300")
+    theme("colors.gradient.from") calc(48rem + 16rem),
+    theme("colors.gradient.to")
   );
   background-size: 200% 200%;
   animation-name: gradient-shift;

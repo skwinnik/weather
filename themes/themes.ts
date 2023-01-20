@@ -1,4 +1,8 @@
 export interface ITheme {
+  gradient: {
+    from: string;
+    to: string;
+  };
   primary: {
     "50": string;
     "100": string;
@@ -95,6 +99,10 @@ export function TempRange(): ITempRange {
 
 export function Day(): ITheme {
   return {
+    gradient: {
+      from: "2 132 199", //600
+      to: "125 211 252", //300
+    },
     primary: {
       "50": "#f0f9ff",
       "100": "#e0f2fe",
@@ -106,7 +114,7 @@ export function Day(): ITheme {
       "700": "#0369a1",
       "800": "#075985",
       "900": "#0c4a6e",
-      "50_rgb":  "240 249 255",
+      "50_rgb": "240 249 255",
       "100_rgb": "224 242 254",
       "200_rgb": "186 230 253",
       "300_rgb": "125 211 252",
@@ -122,6 +130,10 @@ export function Day(): ITheme {
 
 export function Evening(): ITheme {
   return {
+    gradient: {
+      from: "217 119 6", //600
+      to: "252 211 77", //300
+    },
     primary: {
       "50": "#fffbeb",
       "100": "#fef3c7",
@@ -143,6 +155,68 @@ export function Evening(): ITheme {
       "700_rgb": "180 83 9",
       "800_rgb": "146 64 14",
       "900_rgb": "120 53 15",
+    },
+  };
+}
+
+export function Night(): ITheme {
+  return {
+    gradient: {
+      from: "55 48 163", //800
+      to: "129 140 248", //400
+    },
+    primary: {
+      "50": "#eef2ff",
+      "100": "#e0e7ff",
+      "200": "#c7d2fe",
+      "300": "#a5b4fc",
+      "400": "#818cf8",
+      "500": "#6366f1",
+      "600": "#4f46e5",
+      "700": "#4338ca",
+      "800": "#3730a3",
+      "900": "#312e81",
+      "50_rgb": "238 242 255",
+      "100_rgb": "224 231 255",
+      "200_rgb": "199 210 254",
+      "300_rgb": "165 180 252",
+      "400_rgb": "129 140 248",
+      "500_rgb": "99 102 241",
+      "600_rgb": "79 70 229",
+      "700_rgb": "67 56 202",
+      "800_rgb": "55 48 163",
+      "900_rgb": "49 46 129",
+    },
+  };
+}
+
+export function Morning(): ITheme {
+  return {
+    gradient: {
+      from: "6 182 212", //600
+      to: "251 207 232", //pink-200
+    },
+    primary: {
+      "50": "#ecfeff",
+      "100": "#cffafe",
+      "200": "#a5f3fc",
+      "300": "#67e8f9",
+      "400": "#22d3ee",
+      "500": "#06b6d4",
+      "600": "#0891b2",
+      "700": "#0e7490",
+      "800": "#155e75",
+      "900": "#164e63",
+      "50_rgb": "236 254 255",
+      "100_rgb": "207 250 254",
+      "200_rgb": "165 243 252",
+      "300_rgb": "103 232 249",
+      "400_rgb": "34 211 238",
+      "500_rgb": "6 182 212",
+      "600_rgb": "8 145 178",
+      "700_rgb": "14 116 144",
+      "800_rgb": "21 94 117",
+      "900_rgb": "22 78 99",
     },
   };
 }

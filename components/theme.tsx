@@ -1,5 +1,5 @@
 import { IWeather } from "@/services/weather.service";
-import { Day, Evening, TempRange } from "@/themes/themes";
+import { Day, Evening, Morning, Night, TempRange } from "@/themes/themes";
 import { CSSProperties } from "react";
 export function GetMetaColor(weather: IWeather): string {
   const theme = getCurrentTheme(weather);
@@ -11,6 +11,8 @@ export function GetThemeValues(weather: IWeather): CSSProperties {
   const temp = getCurrentTempRange();
 
   return {
+    ["--color-gradient-from" as any]: theme.gradient.from,
+    ["--color-gradient-to" as any]: theme.gradient.to,
     ["--color-primary-50" as any]: theme.primary["50_rgb"],
     ["--color-primary-100" as any]: theme.primary["100_rgb"],
     ["--color-primary-200" as any]: theme.primary["200_rgb"],
@@ -47,7 +49,7 @@ function getCurrentTheme(weather: IWeather) {
   if (localTime.getHours() >= 6 && localTime.getHours() < 18) {
     return Day();
   }
-  return Evening();
+  return Morning();
 }
 
 function getCurrentTempRange() {
