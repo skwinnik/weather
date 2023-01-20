@@ -1,4 +1,5 @@
 export interface ITheme {
+  meta: string;
   gradient: {
     from: string;
     to: string;
@@ -99,6 +100,7 @@ export function TempRange(): ITempRange {
 
 export function Day(): ITheme {
   return {
+    meta: "2 132 199",
     gradient: {
       from: "2 132 199", //600
       to: "125 211 252", //300
@@ -130,6 +132,7 @@ export function Day(): ITheme {
 
 export function Evening(): ITheme {
   return {
+    meta: "217 119 6",
     gradient: {
       from: "217 119 6", //600
       to: "252 211 77", //300
@@ -161,6 +164,7 @@ export function Evening(): ITheme {
 
 export function Night(): ITheme {
   return {
+    meta: "55 48 163",
     gradient: {
       from: "55 48 163", //800
       to: "129 140 248", //400
@@ -192,12 +196,13 @@ export function Night(): ITheme {
 
 export function Morning(): ITheme {
   return {
+    meta: "6 182 212",
     gradient: {
       from: "6 182 212", //600
       to: "251 207 232", //pink-200
     },
     primary: {
-      "50": "#ecfeff",
+      "50": "#ffffff",
       "100": "#cffafe",
       "200": "#a5f3fc",
       "300": "#67e8f9",
@@ -207,7 +212,7 @@ export function Morning(): ITheme {
       "700": "#0e7490",
       "800": "#155e75",
       "900": "#164e63",
-      "50_rgb": "236 254 255",
+      "50_rgb": "255 255 255",
       "100_rgb": "207 250 254",
       "200_rgb": "165 243 252",
       "300_rgb": "103 232 249",

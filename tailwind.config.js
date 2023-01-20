@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+const { stringify } = require("querystring");
 const colors = require("tailwindcss/colors");
 
 module.exports = {
@@ -23,11 +24,13 @@ module.exports = {
     },
 
     colors: {
+      meta: "rgb(var(--color-meta))",
       gradient: {
         from: "rgb(var(--color-gradient-from))",
         to: "rgb(var(--color-gradient-to))",
       },
       primary: {
+        50: "rgb(var(--color-primary-50))",
         100: "rgb(var(--color-primary-100))",
         200: "rgb(var(--color-primary-200))",
         300: "rgb(var(--color-primary-300))",

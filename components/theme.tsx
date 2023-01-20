@@ -3,7 +3,16 @@ import { Day, Evening, Morning, Night, TempRange } from "@/themes/themes";
 import { CSSProperties } from "react";
 export function GetMetaColor(weather: IWeather): string {
   const theme = getCurrentTheme(weather);
-  return theme.gradient.from;
+  function rgbToHex(rgb: string) {
+    return (
+      "#" +
+      rgb
+        .match(/\d+/g)!
+        .map((x) => (+x).toString(16).padStart(2, "0"))
+        .join("")
+    );
+  }
+  return rgbToHex(theme.meta);
 }
 
 export function GetThemeValues(weather: IWeather): CSSProperties {
@@ -11,6 +20,7 @@ export function GetThemeValues(weather: IWeather): CSSProperties {
   const temp = getCurrentTempRange();
 
   return {
+    ["--color-meta" as any]: theme.meta,
     ["--color-gradient-from" as any]: theme.gradient.from,
     ["--color-gradient-to" as any]: theme.gradient.to,
     ["--color-primary-50" as any]: theme.primary["50_rgb"],
@@ -40,14 +50,18 @@ export function GetThemeValues(weather: IWeather): CSSProperties {
     ["--color-temp-14" as any]: temp["14_rgb"],
     ["--color-temp-15" as any]: temp["15_rgb"],
   };
-
-  // root.style.setProperty("--gradient-shift", "48rem");
 }
 
 function getCurrentTheme(weather: IWeather) {
   const localTime = new Date(weather.location.localtime);
-  if (localTime.getHours() >= 6 && localTime.getHours() < 18) {
+  if (localTime.getHours() >= 10 && localTime.getHours() < 18) {
     return Day();
+  }
+  if (localTime.getHours() >= 18 && localTime.getHours() < 22) {
+    return Evening();
+  }
+  if (localTime.getHours() >= 22 || localTime.getHours() < 4) {
+    return Night();
   }
   return Morning();
 }
