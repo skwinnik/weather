@@ -3,7 +3,7 @@ import { Day, Evening, Morning, Night, TempRange } from "@/themes/themes";
 import { CSSProperties } from "react";
 export function GetMetaColor(weather: IWeather): string {
   const theme = getCurrentTheme(weather);
-  return theme.primary["500"];
+  return theme.gradient.from;
 }
 
 export function GetThemeValues(weather: IWeather): CSSProperties {
