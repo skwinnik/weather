@@ -32,7 +32,7 @@ export function CurrentWeatherCompact({
   return (
     <div className={`text-center ${className}`}>
       <h2 className="text-2xl capitalize">
-        {weather.current.temp_c}° | {weather.current.condition.text}
+        {weather.current.temp_c.toFixed(0)}° | {weather.current.condition.text}
       </h2>
     </div>
   );
