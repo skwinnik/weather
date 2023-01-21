@@ -10,7 +10,7 @@ export async function getWeather(
 ) {
   const response = await fetch(
     `https://api.weatherapi.com/v1/forecast.json?q=${city},${country}&days=${days}&key=${process.env.API_KEY}&aqi=no`
-  );
+  , { cache: 'no-store' });
   return response.json();
 }
 
