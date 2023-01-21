@@ -1,8 +1,8 @@
 import { IWeather } from "@/services/weather.service";
 import { Day, Evening, Morning, Night, TempRange } from "@/themes/themes";
 import { CSSProperties } from "react";
-export function GetMetaColor(weather: IWeather): string {
-  const theme = getCurrentTheme(weather);
+export function GetMetaColor(localTime: Date): string {
+  const theme = getCurrentTheme(localTime);
   function rgbToHex(rgb: string) {
     return (
       "#" +
@@ -15,8 +15,13 @@ export function GetMetaColor(weather: IWeather): string {
   return rgbToHex(theme.meta);
 }
 
-export function GetThemeValues(weather: IWeather): CSSProperties {
-  const theme = getCurrentTheme(weather);
+export function GetThemeValuesByWeather(weather: IWeather): CSSProperties {
+  const time = new Date(weather.location.localtime);
+  return GetThemeValuesByTime(time);
+}
+
+export function GetThemeValuesByTime(time: Date): CSSProperties {
+  const theme = getCurrentTheme(time);
   const temp = getCurrentTempRange();
 
   return {
@@ -52,8 +57,7 @@ export function GetThemeValues(weather: IWeather): CSSProperties {
   };
 }
 
-function getCurrentTheme(weather: IWeather) {
-  const localTime = new Date(weather.location.localtime);
+function getCurrentTheme(localTime: Date) {
   if (localTime.getHours() >= 10 && localTime.getHours() < 18) {
     return Day();
   }
