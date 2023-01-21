@@ -2,32 +2,23 @@
 import Weather from "@/components/weather/weather";
 import { getCurrentLocation } from "@/services/location.service";
 import { IWeather } from "@/services/weather.service";
+import { ILocation } from "@/services/location.service";
 import { useEffect, useState } from "react";
 
-const defaultLocation: GeolocationPosition = {
-  coords: {
-    accuracy: 0,
-    altitude: 0,
-    altitudeAccuracy: 0,
-    heading: 0,
-    latitude: 51.52,
-    longitude: -0.11,
-    speed: 0,
-  },
-  timestamp: 0,
+const defaultLocation: ILocation = {
+  latitude: 51.52,
+  longitude: -0.11,
 };
 
 export default function Home() {
   async function getCurrentWeather() {
-    let location: GeolocationPosition | undefined = undefined;
+    let location: ILocation = defaultLocation;
     try {
       location = await getCurrentLocation();
-    } catch (e) {
-      location = defaultLocation;
-    }
+    } catch (e) {}
 
     const res = await fetch(
-      `/api/location-weather?latitude=${location.coords.latitude}&longitude=${location.coords.longitude}`
+      `/api/location-weather?latitude=${location.latitude}&longitude=${location.longitude}`
     );
     return res.json();
   }
