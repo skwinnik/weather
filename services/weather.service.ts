@@ -1,16 +1,24 @@
-export async function getWeatherCurrent() {
-  const data = await getWeather("Istanbul", "Turkey", 10);
-  return data;
+export async function getWeatherByLocation(
+  lat: number,
+  lon: number,
+  days: number = 10
+) {
+  return getWeather(`${lat},${lon}`, days);
 }
 
-export async function getWeather(
+export async function getWeatherByCityCountry(
   city: string,
   country: string,
-  days: number = 1
+  days: number = 10
 ) {
+  return getWeather(`${city},${country}`, days);
+}
+
+export async function getWeather(q: string, days: number) {
   const response = await fetch(
-    `https://api.weatherapi.com/v1/forecast.json?q=${city},${country}&days=${days}&key=${process.env.API_KEY}&aqi=no`
-  , { cache: 'no-store' });
+    `https://api.weatherapi.com/v1/forecast.json?q=${q}&days=${days}&key=${process.env.API_KEY}&aqi=no`,
+    { cache: "no-store" }
+  );
   return response.json();
 }
 

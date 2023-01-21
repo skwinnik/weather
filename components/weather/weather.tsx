@@ -1,3 +1,5 @@
+"use client";
+
 import CloudCoverage from "@/components/cloud-coverage/cloud-coverage";
 import {
   CurrentWeather,
@@ -17,14 +19,16 @@ import Wind from "@/components/wind/wind";
 import { IWeather } from "@/services/weather.service";
 
 import { ClockIcon } from "@heroicons/react/24/outline";
+import { useState } from "react";
 import styles from "./weather.module.css";
 
-export default async function Weather({
+export default function Weather({
   weatherPromise,
 }: {
   weatherPromise?: Promise<IWeather>;
 }) {
-  const weather = await weatherPromise;
+  const [weather, setWeather] = useState<IWeather | undefined>(undefined);
+  weatherPromise?.then((weather) => setWeather(weather));
   return (
     <>
       <div className="max-w-screen-lg mx-auto grid lg:grid-cols-6 sm:grid-cols-4 grid-cols-2 grid-rows-4-h-fixed gap-4 pb-16 xl:pb-0">
