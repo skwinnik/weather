@@ -1,5 +1,6 @@
 export async function getWeatherCurrent() {
-  return getWeather("Antalya", "Turkey", 10);
+  const data = await getWeather("Istanbul", "Turkey", 10);
+  return data;
 }
 
 export async function getWeather(
@@ -10,8 +11,7 @@ export async function getWeather(
   const response = await fetch(
     `https://api.weatherapi.com/v1/forecast.json?q=${city},${country}&days=${days}&key=${process.env.API_KEY}&aqi=no`
   );
-  const data = (await response.json()) as IWeather;
-  return data;
+  return response.json();
 }
 
 export interface IWeather {

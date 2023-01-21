@@ -1,25 +1,45 @@
-import { IForecast, IForecastDayDay } from "@/services/weather.service";
+import {
+  IForecast,
+  IForecastDayDay,
+  IWeather,
+} from "@/services/weather.service";
+import Skeleton from "../skeleton";
 import styles from "./forecast-daily.module.css";
-export default function ForecastDaily({ forecast }: { forecast: IForecast }) {
+export default function ForecastDaily({ weather }: { weather?: IWeather }) {
+  const forecast = weather?.forecast;
   const min_temp = Math.min(
-    ...forecast.forecastday.map((x) => x.day.mintemp_c)
+    ...(forecast?.forecastday.map((x) => x.day.mintemp_c) || [])
   );
   const max_temp = Math.max(
-    ...forecast.forecastday.map((x) => x.day.maxtemp_c)
+    ...(forecast?.forecastday.map((x) => x.day.maxtemp_c) || [])
   );
 
   return (
     <div>
-      {forecast.forecastday.map((day, index) => (
-        <ForecastDailyItem
-          key={index}
-          className="my-3"
-          forecast={day.day}
-          date={new Date(day.date)}
-          overall_min_temp={min_temp}
-          overall_max_temp={max_temp}
-        />
-      ))}
+      {forecast &&
+        forecast.forecastday.map((day, index) => (
+          <ForecastDailyItem
+            key={index}
+            className="my-3"
+            forecast={day.day}
+            date={new Date(day.date)}
+            overall_min_temp={min_temp}
+            overall_max_temp={max_temp}
+          />
+        ))}
+      {!forecast && (
+        <>
+          <ForecastDailyItemSkeleton className="my-3" />
+          <ForecastDailyItemSkeleton className="my-3" />
+          <ForecastDailyItemSkeleton className="my-3" />
+          <ForecastDailyItemSkeleton className="my-3" />
+          <ForecastDailyItemSkeleton className="my-3" />
+          <ForecastDailyItemSkeleton className="my-3" />
+          <ForecastDailyItemSkeleton className="my-3" />
+          <ForecastDailyItemSkeleton className="my-3" />
+          <ForecastDailyItemSkeleton className="my-3" />
+        </>
+      )}
     </div>
   );
 }
@@ -56,6 +76,22 @@ function ForecastDailyItem({
           overall_max_temp={overall_max_temp}
           overall_min_temp={overall_min_temp}
         />
+      </div>
+    </div>
+  );
+}
+
+function ForecastDailyItemSkeleton({ className }: { className?: string }) {
+  return (
+    <div className={`${className} flex items-center justify-between`}>
+      <div className="w-16">
+        <Skeleton width="w-full" />
+      </div>
+      <div className="flex-auto flex-grow-0 flex-shrink-0 px-5">
+        <Skeleton width="w-8" height="h-8" />
+      </div>
+      <div className="flex-grow">
+        <Skeleton width="w-full" />
       </div>
     </div>
   );
